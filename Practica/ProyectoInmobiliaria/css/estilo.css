@@ -1,0 +1,173 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    line-height: 2;
+    font-family: 'Lato', sans-serif;
+}
+
+.site-header {
+    background: url(../img/header.jpg);
+    height: 100vh;
+    background-position: center center;
+    background-size: cover;
+}
+
+.contenido-header {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.site-header h1 {
+    color: white;
+    padding-bottom: 30px;
+}
+
+.barra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+}
+
+.navegacion a {
+    text-decoration: none;
+    color: white;
+    max-width: 600px;
+    margin-right: 10px;
+}
+
+.navegacion a:last-of-type {
+    margin: 0;
+}
+
+.navegacion a:hover {
+    color: darkgreen;
+}
+
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contenedor-iconos {
+    display: flex;
+    justify-content: space-around;
+}
+
+.iconos {
+    flex-basis: calc( 33.3% - 10px);
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.iconos img {
+    width: 30%;
+}
+
+.iconos h3 {
+    text-transform: uppercase;
+    font-size: 32px;
+}
+
+.iconos h3, .iconos p {
+    padding-top: 0%;
+    padding-bottom: 0%;
+}
+
+.iconos p {
+    margin-bottom: 30px;
+}
+
+.tituloNosotros {
+    text-align: center;
+    font-size: 24px;
+}
+
+.tituloNosotros h2 {
+    font-weight: 300;
+}
+
+.contenedorAnuncios {
+    display: flex;
+    justify-content: space-between;
+}
+
+img {
+    width: 100%;
+}
+
+.anuncio {
+    flex-basis: calc(33.3% - 10px);
+    border: 1px solid grey;
+    background-color: #f5f5f5;
+    margin-bottom: 10px;
+}
+.anuncio a{
+    margin: 0 auto;
+}
+
+.contenido-anuncio {
+    padding: 25px 20px;
+}
+
+.contenido-anuncio h3 {
+    font-size: 32px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.precio{
+    color: #71b100
+}
+
+.boton{
+    text-decoration: none;
+    padding: 5px 25px;
+    color: white;
+    font-size: 16px;
+    width: 250px;
+    display: block;
+    text-align: center;
+}
+
+.boton-naranja{
+    background-color: #e08709
+}
+
+.boton-verde{
+    background-color: #71b100;
+}
+
+.comodidades{
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    flex: 1px;
+}
+
+.comodidades li{
+    display: flex;
+}
+
+.comodidades li img{
+margin-right: 20px;
+}
+
+.contenedor-ver-todas{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.titulo-anuncios{
+    text-align: center;
+    font-size: 24px;
+}

@@ -1,0 +1,38 @@
+/* * {
+    padding: 0;
+    margin: 0;
+} */
+
+p,
+h1 {
+    color: #FF0000/*red*/
+    ;
+    /* text-align: center; */
+}
+
+#miparrafo {
+    color: darkgreen
+}
+
+.azul {
+    color: rgb(0, 0, 255);
+}
+
+.fondo {
+    background-color: rgba(54, 225, 248, 0.986);
+}
+
+body {
+    height: 2000px;
+    /* background-image: url("../img/casaLujo2.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: crimson; */
+    background: url("../img/casaLujo2.jpg") no-repeat center fixed black;
+}
+
+
+/* body{
+    background-color: black; 
+} */
