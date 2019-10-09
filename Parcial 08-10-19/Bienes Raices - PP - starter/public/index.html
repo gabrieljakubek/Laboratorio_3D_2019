@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./css/normalize.css"></script>
+    <script src="./css/styles.css"></script>
+    <title>Bienes Raices</title>
+</head>
+
+<body>
+    <form id="frm1">
+        <fieldset>
+            <legend>Informacion del anuncio</legend>
+            <div>
+                <label for="txtTitulo">Titulo:</label>
+                <input type="text" name="txtTitulo" id="titulo" placeholder="Titulo" required>
+            </div>
+            <div>
+                <label for="cboTransaccion">Transaccion</label>
+                <div>
+                    <label for="rdoVenta">Venta</label>
+                    <input type="radio" id="rdoVenta" name="transaccion" value="venta">
+                    <label for="rdoAlquiler">Alquiler</label>
+                    <input type="radio" id="rdoAlquiler" name="transaccion" value="alquiler">
+                </div>
+
+            </div>
+            <div>
+                <label for="txtDescripcion">Descripcion:</label>
+                <input type="text" name="txtDescripcion" id="descripcion" placeholder="Descripcion" required>
+            </div>
+            </div>
+            <div>
+                <label for="txtPrecio">Precio:</label>
+                <input type="text" name="txtPrecio" id="precio" placeholder="Precio" required>
+            </div>
+            <div>
+                <label for="txtAutos">Cantidad de autos:</label>
+                <input type="number" name="txtAutos" id="autos" placeholder="Cantidad Autos"min="0" max="5" required>
+            </div>
+            <div>
+                <label for="txtBaños">Cantidad de Baños:</label>
+                <input type="number" name="txtBaños" id="baños" placeholder="Cantidad Baños" min="1" max="5"required>
+            </div>
+            <div>
+                <label for="txtDormitorios">Cantidad de dormitorios:</label>
+                <input type="number" name="txtDormitorios" id="dormitorios" placeholder="Cantidad Dormitorios" min="1" max="5" required>
+            </div>
+
+        </fieldset>
+    </form>
+    <input type="submit" value="Guardar">
+    <input type="submit" value="Modificar">
+    <input type="submit" value="Eliminar">
+    <div id="tabla"></div>
+</body>
+
+</html>
