@@ -4,58 +4,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="./css/normalize.css"></script>
-    <script src="./css/styles.css"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">.
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/tableHelper.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/anuncio.js"></script>
     <title>Bienes Raices</title>
 </head>
 
 <body>
-    <form id="frm1">
-        <fieldset>
-            <legend>Informacion del anuncio</legend>
-            <div>
-                <label for="txtTitulo">Titulo:</label>
-                <input type="text" name="txtTitulo" id="titulo" placeholder="Titulo" required>
-            </div>
-            <div>
-                <label for="cboTransaccion">Transaccion</label>
-                <div>
-                    <label for="rdoVenta">Venta</label>
-                    <input type="radio" id="rdoVenta" name="transaccion" value="venta">
-                    <label for="rdoAlquiler">Alquiler</label>
-                    <input type="radio" id="rdoAlquiler" name="transaccion" value="alquiler">
+    <div id="container" class="contenedor">
+        <div>
+            <form id="frm1" class="formulario" autocomplete="off">
+                <fieldset>
+                    <legend>Informacion del anuncio</legend>
+                    <div>
+                        <input type="hidden" name="id" id="id" style="visibility: hidden;">
+                    </div>
+                    <div>
+                        <label for="txtTitulo">Titulo:</label>
+                        <input type="text" name="txtTitulo" id="titulo" placeholder="Titulo" required>
+                    </div>
+                    <div>
+                        <label for="cboTransaccion">Transaccion</label>
+                        <div class="radios">
+                            <div>
+                                <label for="rdoAlquiler">Alquiler</label>
+                                <input type="radio" id="rdoAlquiler" name="transaccion" value="alquiler" required>
+                            </div>
+                            <div>
+                                <label for="rdoVenta">Venta</label>
+                                <input type="radio" id="rdoVenta" name="transaccion" value="venta" required>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div>
+                        <label for="txtDescripcion">Descripcion:</label>
+                        <input type="text" name="txtDescripcion" id="descripcion" placeholder="Descripcion" required>
+                    </div>
+                    <div class="numeros">
+                        <div>
+                            <label for="txtPrecio">Precio:</label>
+                            <input type="text" name="txtPrecio" id="precio" placeholder="Precio" min="1" required>
+                        </div>
+                        <div>
+                            <label for="txtAutos">Cantidad de autos:</label>
+                            <input type="number" name="numAutos" id="autos" placeholder="Cantidad Autos" min="0" required>
+                        </div>
+                        <div>
+                            <label for="txtBaños">Cantidad de Baños:</label>
+                            <input type="number" name="numBaños" id="baños" placeholder="Cantidad Baños" min="1" required>
+                        </div>
+                        <div>
+                            <label for="txtDormitorios">Cantidad de dormitorios:</label>
+                            <input type="number" name="numDormitorios" id="dormitorios" placeholder="Cantidad Dormitorios" min="1" required>
+                        </div>
+                    </div>
+                </fieldset>
+                <div id="botones" class="boton">
+                    <button type="button" id="limpiar">Limpiar</button>
+                    <button type="submit" id="guardar" class="button-green">Guardar</button>
+                    <button type="button" id="eliminar" class="button-red">Eliminar</button>
                 </div>
-
-            </div>
-            <div>
-                <label for="txtDescripcion">Descripcion:</label>
-                <input type="text" name="txtDescripcion" id="descripcion" placeholder="Descripcion" required>
-            </div>
-            </div>
-            <div>
-                <label for="txtPrecio">Precio:</label>
-                <input type="text" name="txtPrecio" id="precio" placeholder="Precio" required>
-            </div>
-            <div>
-                <label for="txtAutos">Cantidad de autos:</label>
-                <input type="number" name="txtAutos" id="autos" placeholder="Cantidad Autos"min="0" max="5" required>
-            </div>
-            <div>
-                <label for="txtBaños">Cantidad de Baños:</label>
-                <input type="number" name="txtBaños" id="baños" placeholder="Cantidad Baños" min="1" max="5"required>
-            </div>
-            <div>
-                <label for="txtDormitorios">Cantidad de dormitorios:</label>
-                <input type="number" name="txtDormitorios" id="dormitorios" placeholder="Cantidad Dormitorios" min="1" max="5" required>
-            </div>
-
-        </fieldset>
-    </form>
-    <input type="submit" value="Guardar">
-    <input type="submit" value="Modificar">
-    <input type="submit" value="Eliminar">
-    <div id="tabla"></div>
+                <div id="spinner" class="spinner"></div>
+            </form>
+        </div>
+        <div id="tabla" class="tabla"></div>
+    </div>
 </body>
 
 </html>
