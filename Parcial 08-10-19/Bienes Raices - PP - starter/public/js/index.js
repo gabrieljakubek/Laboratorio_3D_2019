@@ -54,7 +54,7 @@ function crearAnuncio(frm) {
                 descripcion = elemento.value;
                 break;
             case "txtPrecio":
-                precio = elemento.value;
+                precio = `$${elemento.value}`;
                 break;
             case "numAutos":
                 num_estacionamiento = elemento.value;

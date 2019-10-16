@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let nombres = ["Juan", "Ana", "Julia", "Adrian", "Lucio","Ana"];
+        let numeros = [2, 3, 3, 4, 5, 5, 6];
+        let dobles;
+        let personas = [
+            { nombre: "Jose", edad: 30, sexo: "m" },
+            { nombre: "Daniel", edad: 40, sexo: "m" },
+            { nombre: "Julia", edad: 20, sexo: "f" },
+            { nombre: "Alfredo", edad: 34, sexo: "m" }
+        ]
+        let x = new Set(numeros);
+        console.log(x);
+        let sinRepetir = [...new Set(numeros)];
+        console.log(sinRepetir);
+
+        Array.prototype.unique= function(){return [...new Set(this)]};
+        console.log(numeros.unique());
+        console.log(nombres.unique());
+    </script>
+</body>
+
+</html>

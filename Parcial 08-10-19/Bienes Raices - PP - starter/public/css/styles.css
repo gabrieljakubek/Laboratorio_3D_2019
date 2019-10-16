@@ -1,12 +1,13 @@
 .formulario {
     margin: auto;
+    max-width: 30vw;
 }
 
 .tabla {
     margin: auto;
-    margin-top: 10px;
+    margin-top: 0.5%;
     border-collapse: collapse;
-    width: 700px;
+    max-width: 60vw;
     background-color: floralwhite;
 }
 
@@ -21,8 +22,7 @@
 }
 
 .formulario * {
-    margin-right: 5px;
-    margin-bottom: 2px;
+    margin-bottom: 0.5%;
 }
 
 body {
@@ -32,16 +32,16 @@ body {
 .formulario input {
     border: 1px solid black;
     background-color: floralwhite;
-    margin: auto;
-    margin-right: 10%;
-    width: 600px;
+    width: 100%;
 }
 
 .boton {
     display: flex;
     flex-direction: row;
-    margin: auto;
-    width: 500px;
+    justify-content: space-between;
+    margin-top: 2%;
+    margin-left: 10%;
+    width: 70%;
 }
 
 button {
@@ -59,20 +59,15 @@ button {
 .spinner {
     display: flex;
     margin: auto;
-    width: 200px;
+    width: 50%;
 }
 
 .numeros input {
     text-align: center;
 }
 
-.radios {
-    display: flex;
-    flex-direction: column;
-}
-
 .radios input {
-    width: 0px;
+    width: 0%;
 }
 
 .contenedor {
