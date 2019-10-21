@@ -6,11 +6,9 @@ var paises = data.map(function(dato) {
 
 window.addEventListener("load", () => {
     paises.forEach(element => {
-        console.log(element);
         opcion = document.createElement("option");
         opcion.value = element;
         opcion.innerText = element;
-        console.log(opcion);
         document.getElementById("selectPais").appendChild(opcion);
     });
     document.getElementById("selectPais").onchange = cargarCiudades;
