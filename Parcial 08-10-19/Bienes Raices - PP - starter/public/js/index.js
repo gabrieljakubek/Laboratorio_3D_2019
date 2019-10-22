@@ -10,6 +10,7 @@ function inicializarManejadores() {
     frm.addEventListener('submit', guardar);
     document.getElementById("eliminar").addEventListener("click", bajaAnuncio);
     document.getElementById("eliminar").hidden = true;
+
     cargarDatos();
 }
 
@@ -121,6 +122,7 @@ function cargarDatos() {
     let xhr = new XMLHttpRequest();
     let spinner = document.getElementById("spinner");
     let tabla = document.getElementById("tabla");
+    let boxes = document.getElementById("checkBoxes");
     xhr.onreadystatechange = function() {
         //validar readyState y status
         //si todo está OK, parseo la respuesta(responseText) y genero el array de anuncios
@@ -129,6 +131,7 @@ function cargarDatos() {
             spinner.style.display = "none";
             if (xhr.status == 200) {
                 let json = JSON.parse(xhr.responseText);
+                boxes.appendChild(crearBoxes(json.data, "checkBoxes"));
                 tabla.style.visibility = "visible";
                 tabla.innerHTML = "";
                 tabla.appendChild(crearTabla(json.data));

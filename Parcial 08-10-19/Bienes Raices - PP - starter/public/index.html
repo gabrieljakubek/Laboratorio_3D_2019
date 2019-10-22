@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/styles.css">
     <script src="./js/tableHelper.js"></script>
+    <script src="./js/checkBoxes.js"></script>
     <script src="./js/index.js"></script>
     <script src="./js/anuncio.js"></script>
     <title>Bienes Raices</title>
@@ -15,7 +16,7 @@
 
 <body>
     <div id="container" class="contenedor">
-        <div>
+        <div id="formulario">
             <form id="frm1" class="formulario" autocomplete="off">
                 <fieldset>
                     <legend>Informacion del anuncio</legend>
@@ -71,7 +72,10 @@
                 <div id="spinner" class="spinner"></div>
             </form>
         </div>
-        <div id="tabla" class="tabla"></div>
+        <div>
+            <div id="checkBoxes"></div>
+            <div id="tabla" class="tabla"></div>
+        </div>
     </div>
 </body>
 

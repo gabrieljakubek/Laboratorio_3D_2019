@@ -21,6 +21,7 @@ soluciones.usuariosFemeninos = function(usuarios) {
 
 console.log(soluciones.usuariosFemeninos(data));
 
+
 // Retornar un array de strings (el email de los usuarios de sexo masculino)
 
 soluciones.mailsVarones = function(usuarios) {
@@ -112,3 +113,18 @@ soluciones.promedioMujeres = function(usuarios) {
 }
 
 console.log("Promedio edad Mujeres " + soluciones.promedioMujeres(data));
+
+var opciones = ["id", "nombre", "email"];
+
+soluciones.cargarOpciones = function(datos) {
+
+    return datos.map(function(delta) {
+        let retorno = new Object();
+        opciones.forEach(elemento => {
+            opcion = elemento;
+            retorno[opcion] = delta[opcion];
+        });
+        return retorno;
+    })
+}
+console.log(soluciones.cargarOpciones(data));
