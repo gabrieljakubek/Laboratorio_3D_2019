@@ -72,7 +72,17 @@ button {
 
 .contenedor {
     display: flex;
+    justify-content: space-evenly;
+}
+
+.checkBoxes {
+    display: flex;
     justify-content: space-between;
 }
 
-.checkBoxes {}
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid black;
+}
