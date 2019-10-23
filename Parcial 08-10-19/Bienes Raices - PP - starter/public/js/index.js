@@ -131,7 +131,7 @@ function cargarDatos() {
             spinner.style.display = "none";
             if (xhr.status == 200) {
                 let json = JSON.parse(xhr.responseText);
-                boxes.appendChild(crearBoxes(json.data, "checkBoxes"));
+                crearBoxes(json.data, "checkBoxes");
                 tabla.style.visibility = "visible";
                 tabla.innerHTML = "";
                 tabla.appendChild(crearTabla(json.data));
