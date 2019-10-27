@@ -10,23 +10,44 @@ function inicializarManejadores() {
     document.getElementById("limpiar").addEventListener("click", limpiarForm);
     frm.addEventListener('submit', guardar);
     document.getElementById("eliminar").addEventListener("click", bajaAnuncio);
-    document.getElementById("eliminar").hidden = true;
+    $("#eliminar").hide();
     cargarDatos(true);
 }
 
 
 function limpiarForm() {
-    let inputs = document.getElementsByTagName("input");
-    for (let index = 0; index < inputs.length; index++) {
-        inputs[index].value = "";
-        if (inputs[index].checked) {
-            inputs[index].checked = false;
+    frm = document.forms[0];
+    for (elemento of frm.elements) {
+        switch (elemento.name) {
+            case "id":
+                elemento.value = 0;
+                break;
+            case "txtTitulo":
+                elemento.value = "";
+                break;
+            case "transaccion":
+                if (elemento.checked) {
+                    elemento.checked = false;
+                }
+                break;
+            case "txtDescripcion":
+                elemento.value = "";
+                break;
+            case "txtPrecio":
+                elemento.value = "";
+                break;
+            case "numAutos":
+                elemento.value = "";
+                break;
+            case "numBaños":
+                elemento.value = "";
+                break;
+            case "numDormitorios":
+                elemento.value = "";
+                break;
         }
     }
-    document.getElementById("id").value = 0;
-    document.getElementById("rdoAlquiler").value = "alquiler";
-    document.getElementById("rdoVenta").value = "venta";
-    document.getElementById("eliminar").hidden = true;
+    $("#eliminar").hide();
 }
 
 function crearAnuncio(frm) {
@@ -84,37 +105,41 @@ function guardar(e) {
 function cargarAnuncio(e) {
     let tr = e.target.parentElement;
     let tds = tr.childNodes;
-    for (elemento of frm.elements) {
-        switch (elemento.name) {
-            case "id":
-                elemento.value = tds[0].innerText;
-                break;
-            case "txtTitulo":
-                elemento.value = tds[1].innerText;
-                break;
-            case "transaccion":
-                if (elemento.value == tds[2].innerHTML.toLowerCase()) {
-                    elemento.checked = true;
-                }
-                break;
-            case "txtDescripcion":
-                elemento.value = tds[3].innerText;
-                break;
-            case "txtPrecio":
-                elemento.value = tds[4].innerText;
-                break;
-            case "numAutos":
-                elemento.value = tds[5].innerText;
-                break;
-            case "numBaños":
-                elemento.value = tds[6].innerText;
-                break;
-            case "numDormitorios":
-                elemento.value = tds[7].innerText;
-                break;
+    filtro = listado.filter(element => element.id == tds[0].innerText);
+    filtro.forEach(dato => {
+        console.log(dato)
+        for (elemento of frm.elements) {
+            switch (elemento.name) {
+                case "id":
+                    elemento.value = dato.id;
+                    break;
+                case "txtTitulo":
+                    elemento.value = dato.titulo;
+                    break;
+                case "transaccion":
+                    if (elemento.value == dato.transaccion.toLowerCase()) {
+                        elemento.checked = true;
+                    }
+                    break;
+                case "txtDescripcion":
+                    elemento.value = dato.descripcion;
+                    break;
+                case "txtPrecio":
+                    elemento.value = dato.precio;
+                    break;
+                case "numAutos":
+                    elemento.value = dato.num_estacionamiento;
+                    break;
+                case "numBaños":
+                    elemento.value = dato.num_wc;
+                    break;
+                case "numDormitorios":
+                    elemento.value = dato.num_dormitorio;
+                    break;
+            }
         }
-    }
-    document.getElementById("eliminar").hidden = false;
+    });
+    $("#eliminar").show();
 }
 
 function cargarTabla(datos) {
@@ -128,6 +153,18 @@ function cargarTabla(datos) {
     };
 }
 
-function filtrarTabla(datos) {
-
+function filtrarTabla() {
+    let opciones = ['id'];
+    $('.box input:checked').each(function() {
+        if ($(this).prop('checked') == true) {
+            opciones.push($(this).val());
+        }
+    })
+    cargarTabla(listado.map(function(dato) {
+        let retorno = new Object();
+        opciones.forEach(elemento => {
+            retorno[elemento] = dato[elemento];
+        });
+        return retorno;
+    }))
 }

@@ -15,8 +15,6 @@ function ocultarSpinner() {
 
 //////////////////////LLAMADAS JQ.AJAX/////////////////////////////////
 
-
-
 function cargarDatos(boolean) {
     $.ajax({
             method: 'GET',
@@ -30,18 +28,12 @@ function cargarDatos(boolean) {
                 ocultarSpinner();
                 listado = d.data;
                 crearBoxes(listado, "checkBoxes");
-                let checks = $('.box input:checked').each(function() {
-                    if ($(this).attr('checked')) {
-                        console.log($(this).val())
-                    }
-                })
-
                 cargarTabla(listado);
             } else {
                 ocultarSpinner();
                 listado = d.data;
+                cargarTabla(listado);
             }
-
         }).fail(function(d, status, jqXht) {
             console.log(`Error: ${status} - ${jqXht.statusText}`);
         });
@@ -55,7 +47,6 @@ function altaAnuncio(anuncio) {
         beforeSend: mostrarSpinner()
     }).done(function() {
         cargarDatos(false);
-        cargarTabla(listado);
     }).fail(function(d, status, jqXht) {
         console.log(`Error: ${status} - ${jqXht.statusText}`);
     });
@@ -68,9 +59,7 @@ function modificarAnuncio(anuncio) {
         data: anuncio,
         beforeSend: mostrarSpinner()
     }).done(function(d) {
-        ocultarSpinner();
-        listado = d.data;
-        cargarTabla(listado);
+        cargarDatos(false);
     }).fail(function(d, status, jqXht) {
         console.log(`Error: ${status} - ${jqXht.statusText}`);
     });
@@ -83,9 +72,10 @@ function bajaAnuncio() {
         data: `id=${$('#id').val()}`,
         beforeSend: mostrarSpinner()
     }).done(function(d) {
-        ocultarSpinner();
-        listado = d.data;
-        cargarTabla(listado);
+        // ocultarSpinner();
+        // listado = d.data;
+        // cargarTabla(listado);
+        cargarDatos(false);
     }).fail(function(d, status, jqXht) {
         console.log(`Error: ${status} - ${jqXht.statusText}`);
     });
