@@ -1,6 +1,7 @@
 //ATRIBUTOS DE ANUNCIO
 //id,titulo,transaccion,descripcion,precio,num_wc,num_estacionamiento,num_dormitorio;
 let frm;
+var listado = [];
 window.addEventListener("load", inicializarManejadores);
 
 function inicializarManejadores() {
@@ -10,8 +11,7 @@ function inicializarManejadores() {
     frm.addEventListener('submit', guardar);
     document.getElementById("eliminar").addEventListener("click", bajaAnuncio);
     document.getElementById("eliminar").hidden = true;
-
-    cargarDatos();
+    cargarDatos(true);
 }
 
 
@@ -116,121 +116,18 @@ function cargarAnuncio(e) {
     }
     document.getElementById("eliminar").hidden = false;
 }
-//////////////////////LLAMADAS AJAX/////////////////////////////////
 
-function cargarDatos() {
-    let xhr = new XMLHttpRequest();
-    let spinner = document.getElementById("spinner");
-    let tabla = document.getElementById("tabla");
-    let boxes = document.getElementById("checkBoxes");
-    xhr.onreadystatechange = function() {
-        //validar readyState y status
-        //si todo está OK, parseo la respuesta(responseText) y genero el array de anuncios
-        if (xhr.readyState == 4) {
-            spinner.innerHTML = "";
-            spinner.style.display = "none";
-            if (xhr.status == 200) {
-                let json = JSON.parse(xhr.responseText);
-                crearBoxes(json.data, "checkBoxes");
-                tabla.style.visibility = "visible";
-                tabla.innerHTML = "";
-                tabla.appendChild(crearTabla(json.data));
-                let tds = document.getElementsByTagName("td");
-                for (let i = 0; i < tds.length; i++) {
-                    tds[i].addEventListener("click", cargarAnuncio);
-                }
-            } else {
-                console.log(`Error: ${xhr.status} - ${xhr.statusText}`);
-            }
-
-        } else {
-            if (spinner.style.display == "none") {
-                spinner.style.display = "";
-            }
-            document.getElementById("tabla").style.visibility = "hidden";
-            spinner.innerHTML = '<img src="./img/831.gif" alt="spinner"/>';
-        }
+function cargarTabla(datos) {
+    let tabla = $("#tabla");
+    tabla.show();
+    tabla.html("");
+    tabla.append(crearTabla(datos));
+    let tds = document.getElementsByTagName("td");
+    for (let i = 0; i < tds.length; i++) {
+        tds[i].addEventListener("click", cargarAnuncio);
     };
-    //Envio la peticion get
-    let url = "http://localhost:3000/traerAnuncios";
-    xhr.open("GET", url, true);
-    xhr.send();
 }
 
-function altaAnuncio(anuncio) {
-    let xhr = new XMLHttpRequest();
-    let tabla = document.getElementById("tabla");
-    let spinner = document.getElementById("spinner");
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4) {
-            spinner.innerHTML = "";
-            spinner.style.display = "none";
-            if (xhr.status == 200) {
-                tabla.innerHTML = "";
-                cargarDatos();
-                limpiarForm();
-            }
-        } else {
-            if (spinner.style.display == "none") {
-                spinner.style.display = "";
-            }
-            spinner.innerHTML = '<img src="./img/831.gif" alt="spinner"/>';
-        }
-    };
-    let url = "http://localhost:3000/altaAnuncio";
-    xhr.open("POST", url, true);
-    xhr.setRequestHeader('Content-type', 'Application/json');
-    xhr.send(JSON.stringify(anuncio));
-}
+function filtrarTabla(datos) {
 
-function modificarAnuncio(anuncio) {
-    let xhr = new XMLHttpRequest();
-    let tabla = document.getElementById("tabla");
-    let spinner = document.getElementById("spinner");
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4) {
-            spinner.innerHTML = "";
-            spinner.style.display = "none";
-            if (xhr.status == 200) {
-                tabla.innerHTML = "";
-                cargarDatos();
-                limpiarForm();
-            }
-        } else {
-            if (spinner.style.display == "none") {
-                spinner.style.display = "";
-            }
-            spinner.innerHTML = '<img src="./img/831.gif" alt="spinner"/>';
-        }
-    };
-    let url = "http://localhost:3000/modificarAnuncio";
-    xhr.open("POST", url, true);
-    xhr.setRequestHeader('Content-type', 'Application/json');
-    xhr.send(JSON.stringify(anuncio));
-}
-
-function bajaAnuncio() {
-    let xhr = new XMLHttpRequest();
-    let tabla = document.getElementById("tabla");
-    let spinner = document.getElementById("spinner");
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4) {
-            spinner.innerHTML = "";
-            spinner.style.display = "none";
-            if (xhr.status == 200) {
-                tabla.innerHTML = "";
-                cargarDatos();
-                limpiarForm();
-            }
-        } else {
-            if (spinner.style.display == "none") {
-                spinner.style.display = "";
-            }
-            spinner.innerHTML = '<img src="./img/831.gif" alt="spinner"/>';
-        }
-    };
-    let url = "http://localhost:3000/bajaAnuncio";
-    xhr.open("POST", url, true);
-    xhr.setRequestHeader('Content-type', 'Application/x-www-form-urlencoded');
-    xhr.send(`id=${document.getElementById("id").value}`);
 }

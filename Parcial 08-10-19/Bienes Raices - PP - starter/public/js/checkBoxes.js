@@ -1,5 +1,5 @@
-function crearBoxes(array, seccionId) {
-    var divBox = document.getElementById(seccionId);
+function crearBoxes(array, boxsId) {
+    var divBox = document.getElementById(boxsId);
     for (atributo in array[0]) {
         if (atributo != "id") {
             let div = document.createElement("div");
@@ -12,8 +12,12 @@ function crearBoxes(array, seccionId) {
             checkbox.name = "chk_" + atributo;
             checkbox.id = "chk_" + atributo;
             checkbox.value = atributo;
+            checkbox.checked = true;
             div.appendChild(labelA);
             div.appendChild(checkbox);
+            divBox.appendChild(div);
+        } else {
+            let div = document.createElement("div");
             divBox.appendChild(div);
         }
     }
