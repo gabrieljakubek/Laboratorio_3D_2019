@@ -7,7 +7,6 @@
     margin: auto;
     margin-top: 0.5%;
     border-collapse: collapse;
-    max-width: 60vw;
     background-color: floralwhite;
 }
 
@@ -85,4 +84,8 @@ button {
     flex-direction: column;
     justify-content: space-between;
     border: 1px solid black;
+}
+
+.info {
+    width: 55vw;
 }

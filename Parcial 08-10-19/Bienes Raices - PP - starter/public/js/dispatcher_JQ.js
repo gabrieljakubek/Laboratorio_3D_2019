@@ -15,7 +15,7 @@ function ocultarSpinner() {
 
 //////////////////////LLAMADAS JQ.AJAX/////////////////////////////////
 
-function cargarDatos(boolean) {
+function cargarDatos(primer) {
     $.ajax({
             method: 'GET',
             url: 'http://localhost:3000/traerAnuncios',
@@ -24,7 +24,7 @@ function cargarDatos(boolean) {
 
         })
         .done(function(d) {
-            if (boolean) {
+            if (primer) {
                 ocultarSpinner();
                 listado = d.data;
                 crearBoxes(listado, "checkBoxes");

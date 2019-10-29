@@ -13,6 +13,7 @@ function crearBoxes(array, boxsId) {
             checkbox.id = "chk_" + atributo;
             checkbox.value = atributo;
             checkbox.checked = true;
+            checkbox.onclick = filtrarTabla;
             div.appendChild(labelA);
             div.appendChild(checkbox);
             divBox.appendChild(div);
