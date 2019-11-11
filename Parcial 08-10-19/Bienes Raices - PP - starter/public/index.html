@@ -10,7 +10,7 @@
     <script src="./js/jQuery_min.js"></script>
     <script src="./js/dispatcher_JQ.js"></script>
     <script src="./js/tableHelper.js"></script>
-    <script src="./js/checkBoxes.js"></script>
+    <script src="./js/checkboxHelper.js"></script>
     <script src="./js/index.js"></script>
     <script src="./js/anuncio.js"></script>
     <title>Bienes Raices</title>
@@ -75,6 +75,14 @@
             </form>
         </div>
         <div class="info">
+            <div id="filtros" class="filtros">
+                <label for="selTransaccion">Transaccion:</label>
+                <select name="selTransaccion" id="selTransaccion">
+                    <option value="todas">Mostrar Todas</option>
+                    <option value="alquiler">Alquiler</option>
+                    <option value="venta">Venta</option>
+                </select>
+            </div>
             <div id="checkBoxes" class="checkBoxes"></div>
             <div id="tabla" class="tabla"></div>
         </div>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">.
+    <link rel="stylesheet" href="./css/normalize.css">
+    <!-- <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/jQuery_min.js"></script>
+    <!-- <script src="./js/dispatcher_LS.js"></script> -->
+    <script src="./js/dispatcher_JQ.js"></script>
+    <script src="./js/tableHelper.js"></script>
+    <script src="./js/checkBoxes.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/anuncio.js"></script>
+    <title>Bienes Raices</title>
+</head>
+
+<body>
+    <div id="container" class="container">
+        <div class="row">
+            <div id="formulario" class="col-12">
+                <form id="frm1" class="formulario" autocomplete="off">
+                    <fieldset>
+                        <legend>Informacion del anuncio</legend>
+                        <div>
+                            <input type="hidden" name="id" id="id" style="visibility: hidden;">
+                        </div>
+                        <div>
+                            <label for="txtTitulo">Titulo:</label>
+                            <input type="text" name="txtTitulo" id="titulo" placeholder="Titulo" required>
+                        </div>
+                        <div>
+                            <label for="cboTransaccion">Transaccion</label>
+                            <div class="radios">
+                                <div>
+                                    <label for="rdoAlquiler">Alquiler</label>
+                                    <input type="radio" id="rdoAlquiler" name="transaccion" value="alquiler" required>
+                                </div>
+                                <div>
+                                    <label for="rdoVenta">Venta</label>
+                                    <input type="radio" id="rdoVenta" name="transaccion" value="venta" required>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div>
+                            <label for="txtDescripcion">Descripcion:</label>
+                            <input type="text" name="txtDescripcion" id="descripcion" placeholder="Descripcion" required>
+                        </div>
+                        <div class="numeros">
+                            <div>
+                                <label for="txtPrecio">Precio:</label>
+                                <input type="text" name="txtPrecio" id="precio" placeholder="Precio" required>
+                            </div>
+                            <div>
+                                <label for="txtAutos">Cantidad de autos:</label>
+                                <input type="number" name="numAutos" id="autos" placeholder="Cantidad Autos" min="0" required>
+                            </div>
+                            <div>
+                                <label for="txtBaños">Cantidad de Baños:</label>
+                                <input type="number" name="numBaños" id="baños" placeholder="Cantidad Baños" min="1" required>
+                            </div>
+                            <div>
+                                <label for="txtDormitorios">Cantidad de dormitorios:</label>
+                                <input type="number" name="numDormitorios" id="dormitorios" placeholder="Cantidad Dormitorios" min="1" required>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div id="botones" class="boton">
+                        <button type="button" id="limpiar">Limpiar</button>
+                        <button type="submit" id="guardar" class="button-green">Guardar</button>
+                        <button type="button" id="eliminar" class="button-red">Eliminar</button>
+                    </div>
+                    <div id="spinner" class="spinner"></div>
+                </form>
+            </div>
+        </div>
+        <div class="row justify-content-lg-center" style="margin-top: 10px;">
+            <div id="filtros" class="filtros">
+                <label for="selTransaccion">Transaccion:</label>
+                <select name="selTransaccion" id="selTransaccion">
+                                <option value="todas">Mostrar Todas</option>
+                                <option value="alquiler">Alquiler</option>
+                                <option value="venta">Venta</option>
+                            </select>
+            </div>
+        </div>
+        <div class="row justify-content-lg-center">
+            <div id="checkBoxes" class="checkBoxes col-7"></div>
+        </div>
+        <div class="row justify-content-lg-center">
+            <div id="tabla" class="tabla col-7"></div>
+        </div>
+    </div>
+    <!-- <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>

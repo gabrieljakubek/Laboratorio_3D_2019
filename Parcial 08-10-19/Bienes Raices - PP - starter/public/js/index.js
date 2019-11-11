@@ -10,6 +10,7 @@ function inicializarManejadores() {
     document.getElementById("limpiar").addEventListener("click", limpiarForm);
     frm.addEventListener('submit', guardar);
     document.getElementById("eliminar").addEventListener("click", bajaAnuncio);
+    document.getElementById("selTransaccion").addEventListener('change', filtrarTabla);
     $("#eliminar").hide();
     cargarDatos(true);
 }
@@ -160,11 +161,24 @@ function filtrarTabla() {
             opciones.push($(this).val());
         }
     })
-    cargarTabla(listado.map(function(dato) {
-        let retorno = new Object();
-        opciones.forEach(elemento => {
-            retorno[elemento] = dato[elemento];
-        });
-        return retorno;
-    }))
+    let selOpcion = document.getElementById('selTransaccion').value;
+    if (selOpcion == 'todas') {
+        cargarTabla(listado.map(function(dato) {
+            let retorno = new Object();
+            opciones.forEach(elemento => {
+                retorno[elemento] = dato[elemento];
+            });
+            return retorno;
+        }))
+    } else {
+        cargarTabla(listado.filter(dato => dato.transaccion.toLowerCase() == selOpcion)
+            .map(function(dato) {
+                let retorno = new Object();
+                opciones.forEach(elemento => {
+                    retorno[elemento] = dato[elemento];
+                });
+                return retorno;
+            }))
+    }
+
 }
