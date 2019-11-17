@@ -24,7 +24,7 @@
 }
 
 body {
-    background-color: rgb(130, 134, 157);
+    background-color: #cac8c8;
 }
 
 .formulario input {
@@ -44,14 +44,15 @@ body {
 
 button {
     border-radius: 500px;
+   
 }
 
 .button-green {
-    background-color: darkgreen;
+    background-color: rgb(94, 216, 94);
 }
 
 .button-red {
-    background-color: darkred;
+    background-color: #fc5185;
 }
 
 .spinner {
@@ -60,13 +61,10 @@ button {
     width: 50%;
 }
 
-.numeros input {
+input {
     text-align: center;
 }
 
-.radios input {
-    width: 0%;
-}
 
 .contenedor {
     display: flex;
