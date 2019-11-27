@@ -77,7 +77,7 @@ function crearAnuncio(frm) {
                 descripcion = elemento.value;
                 break;
             case "txtPrecio":
-                precio = `$${elemento.value}`;
+                precio = elemento.value;
                 break;
             case "numAutos":
                 num_estacionamiento = elemento.value;
@@ -149,9 +149,10 @@ function cargarTabla(datos) {
     tabla.html("");
     tabla.append(crearTabla(datos));
     let tds = document.getElementsByTagName("td");
-    for (let i = 0; i < tds.length; i++) {
-        tds[i].addEventListener("click", cargarAnuncio);
-    };
+    // for (let i = 0; i < tds.length; i++) {
+    //     tds[i].addEventListener("click", cargarAnuncio);
+    // };
+    $('td').click(cargarAnuncio);
 }
 
 function filtrarTabla() {

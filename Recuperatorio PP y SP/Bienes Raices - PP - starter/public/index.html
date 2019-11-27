@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css"
+        integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
+    <script src="./js/jQuery_min.js"></script>
+    <!-- <script src="./js/dispatcher_JQ.js"></script> -->
+    <script src="./js/dispatcher_LS.js"></script>
+    <script src="./js/tableHelper.js"></script>
+    <script src="./js/checkboxHelper.js"></script>
+    <script src="./js/selectHelper.js"></script>
+    <script src="./js/index.js"></script>
+    <!-- <script src="./js/anuncio.js"></script> -->
+    <script src="ts/outfile.js"></script>
+    <title>Bienes Raices</title>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div id="formulario">
+            <form id="frm1" class="formulario form" autocomplete="off">
+                <fieldset>
+                    <legend>Informacion del anuncio</legend>
+                </fieldset>
+                <div>
+                    <input type="hidden" name="id" id="id" style="visibility: hidden;">
+                </div>
+                <div>
+                    <label for="txtTitulo">Titulo:</label>
+                    <input type="text" name="txtTitulo" id="titulo" placeholder="Titulo" required>
+                </div>
+                <div>
+                    <label for="cboTransaccion">Transaccion</label>
+                    <div class="radios">
+                        <div>
+                            <label for="rdoAlquiler">Alquiler</label>
+                            <input type="radio" id="rdoAlquiler" name="transaccion" value="alquiler" required>
+                        </div>
+                        <div>
+                            <label for="rdoVenta">Venta</label>
+                            <input type="radio" id="rdoVenta" name="transaccion" value="venta" required>
+                        </div>
+                    </div>
+
+                </div>
+                <div>
+                    <label for="txtDescripcion">Descripcion:</label>
+                    <input type="text" name="txtDescripcion" id="descripcion" placeholder="Descripcion" required>
+                </div>
+                <div class="numeros">
+                    <div>
+                        <label for="txtPrecio">Precio:</label>
+                        <input type="text" name="txtPrecio" id="precio" placeholder="Precio" required>
+                    </div>
+                    <!-- <div id="moneda">
+                            <label for="selMoneda">Moneda:</label>
+                            <select name="selMoneda" id="selMoneda">
+                                <option value="USD">Dolar Americano</option>
+                                <option value="EUR">Euro</option>
+                                <option value="PESO" selected>Peso Argentino</option>
+                            </select>
+                        </div> -->
+                    <div>
+                        <label for="txtAutos">Cantidad de autos:</label>
+                        <input type="number" name="numAutos" id="autos" placeholder="Cantidad Autos" min="0" required>
+                    </div>
+                    <div>
+                        <label for="txtBaños">Cantidad de Baños:</label>
+                        <input type="number" name="numBaños" id="baños" placeholder="Cantidad Baños" min="1" required>
+                    </div>
+                    <div>
+                        <label for="txtDormitorios">Cantidad de dormitorios:</label>
+                        <input type="number" name="numDormitorios" id="dormitorios" placeholder="Cantidad Dormitorios"
+                            min="1" required>
+                    </div>
+                </div>
+                </fieldset>
+                <div id="botones" class="boton">
+                    <button type="button" id="limpiar">Limpiar</button>
+                    <button type="submit" id="guardar" class="button-green">Guardar</button>
+                    <button type="button" id="eliminar" class="button-red">Eliminar</button>
+                </div>
+                <div id="spinner" class="spinner"></div>
+            </form>
+        </div>
+        <div id="filtros" class="filtros">
+            <label for="selTransaccion">Transaccion:</label>
+            <select name="selTransaccion" id="selTransaccion">
+                <option value="todas">Mostrar Todas</option>
+            </select>
+        </div>
+        <div>
+            <label for="promedio">Promedio:</label>
+            <input type="text" id="promedio" readonly>
+        </div>
+        <div id="checkBoxes" class="checkBoxes"></div>
+        <div id="tabla" class="tabla"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js"
+        integrity="sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

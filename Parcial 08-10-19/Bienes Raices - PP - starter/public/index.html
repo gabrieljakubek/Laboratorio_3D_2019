@@ -8,16 +8,18 @@
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/styles.css">
     <script src="./js/jQuery_min.js"></script>
-    <script src="./js/dispatcher_JQ.js"></script>
+    <!-- <script src="./js/dispatcher_JQ.js"></script> -->
+    <script src="./js/dispatcher_LS.js"></script>
     <script src="./js/tableHelper.js"></script>
     <script src="./js/checkboxHelper.js"></script>
     <script src="./js/index.js"></script>
-    <script src="./js/anuncio.js"></script>
+    <!-- <script src="./js/anuncio.js"></script> -->
+    <script src="ts/outfile.js"></script>
     <title>Bienes Raices</title>
 </head>
 
 <body>
-    <div id="container" class="contenedor">
+    <div id="container">
         <div id="formulario">
             <form id="frm1" class="formulario" autocomplete="off">
                 <fieldset>
@@ -54,15 +56,18 @@
                         </div>
                         <div>
                             <label for="txtAutos">Cantidad de autos:</label>
-                            <input type="number" name="numAutos" id="autos" placeholder="Cantidad Autos" min="0" required>
+                            <input type="number" name="numAutos" id="autos" placeholder="Cantidad Autos" min="0"
+                                required>
                         </div>
                         <div>
                             <label for="txtBaños">Cantidad de Baños:</label>
-                            <input type="number" name="numBaños" id="baños" placeholder="Cantidad Baños" min="1" required>
+                            <input type="number" name="numBaños" id="baños" placeholder="Cantidad Baños" min="1"
+                                required>
                         </div>
                         <div>
                             <label for="txtDormitorios">Cantidad de dormitorios:</label>
-                            <input type="number" name="numDormitorios" id="dormitorios" placeholder="Cantidad Dormitorios" min="1" required>
+                            <input type="number" name="numDormitorios" id="dormitorios"
+                                placeholder="Cantidad Dormitorios" min="1" required>
                         </div>
                     </div>
                 </fieldset>
@@ -74,18 +79,16 @@
                 <div id="spinner" class="spinner"></div>
             </form>
         </div>
-        <div class="info">
-            <div id="filtros" class="filtros">
-                <label for="selTransaccion">Transaccion:</label>
-                <select name="selTransaccion" id="selTransaccion">
-                    <option value="todas">Mostrar Todas</option>
-                    <option value="alquiler">Alquiler</option>
-                    <option value="venta">Venta</option>
-                </select>
-            </div>
-            <div id="checkBoxes" class="checkBoxes"></div>
-            <div id="tabla" class="tabla"></div>
+        <div id="filtros" class="filtros">
+            <label for="selTransaccion">Transaccion:</label>
+            <select name="selTransaccion" id="selTransaccion">
+                <option value="todas">Mostrar Todas</option>
+                <option value="alquiler">Alquiler</option>
+                <option value="venta">Venta</option>
+            </select>
         </div>
+        <div id="checkBoxes" class="checkBoxes"></div>
+        <div id="tabla" class="tabla"></div>
     </div>
 </body>
 

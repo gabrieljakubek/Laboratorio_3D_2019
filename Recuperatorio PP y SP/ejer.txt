@@ -1,0 +1,3 @@
+if (precios.length > 1) {
+            $('#selMoneda').val(precios[0]);
+        }
